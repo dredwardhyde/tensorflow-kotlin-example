@@ -24,8 +24,8 @@ class SwaggerConfiguration {
 
     private fun apiInfo(): ApiInfo {
         return ApiInfo(
-                "TensorFlow Java Example REST API",
-                "TensorFlow Java Example REST API",
+                "TensorFlow Kotlin Example REST API",
+                "TensorFlow Kotlin Example REST API",
                 "1.0",
                 "",
                 Contact("Nikita Schneider", "", "test@gmail.com"),
