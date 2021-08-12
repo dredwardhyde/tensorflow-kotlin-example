@@ -1,0 +1,11 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: tensorflow-kotlin-example
+management:
+  endpoint:
+    health:
+      enabled: true
+model:
+  directory: ${MODEL_DIRECTORY}

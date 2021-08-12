@@ -1,0 +1,17 @@
+.list-group {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.label-success {
+    margin-left: 20px;
+}
+
+.list-group-item {
+    text-align: center;
+}
+
+#detection_btn {
+    margin-top: 5px;
+    width: 100%;
+}

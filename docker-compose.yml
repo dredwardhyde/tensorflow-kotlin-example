@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "10000:9000"
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "localhost:9000/actuator/health 2>&1 | grep UP || exit 1" ]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+    environment:
+      - MODEL_DIRECTORY=/opt/model/
