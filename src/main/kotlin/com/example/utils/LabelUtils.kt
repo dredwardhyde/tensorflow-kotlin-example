@@ -2,7 +2,6 @@ package com.example.utils
 
 import com.google.protobuf.TextFormat
 import object_detection.protos.StringIntLabelMapOuterClass.StringIntLabelMap
-import org.springframework.util.ResourceUtils
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths

@@ -20,10 +20,11 @@ data class DetectedClass(val name: String, val score: Float)
 
 @Service
 class ObjectDetectionService {
-    private lateinit var savedModel: SavedModelBundle
 
     @Autowired
     private lateinit var env: Environment
+
+    private lateinit var savedModel: SavedModelBundle
 
     private fun bgr2rgb(data: ByteArray) {
         var i = 0
@@ -59,11 +60,9 @@ class ObjectDetectionService {
 
     @Throws(Exception::class)
     fun detectObjects(file: MultipartFile): List<DetectedClass> {
-        val testImage = ImageIO.read(file.getInputStream())
+        val testImage = ImageIO.read(file.inputStream)
         val input = createTensor(testImage)
-        val outputs = savedModel
-                .session()
-                .runner()
+        val outputs = savedModel.session().runner()
                 .feed(getInputNodeName(savedModel, "input_tensor"), input)
                 .fetch(getOutputNodeName(savedModel, "num_detections"))
                 .fetch(getOutputNodeName(savedModel, "detection_scores"))

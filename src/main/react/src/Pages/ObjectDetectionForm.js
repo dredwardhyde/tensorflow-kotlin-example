@@ -4,13 +4,13 @@ import {Button, ListGroupItem, ListGroup, Label, Panel} from "react-bootstrap";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as ObjectDetectionActions from "./ObjectDetectionActions";
-import '../Common/style.css'
+import "../Common/style.css"
 
 class ObjectDetectionForm extends React.Component {
 
     state = {
         fileToUpload: null,
-        detectionStatus: 'idle',
+        detectionStatus: "idle",
         detectedClasses: []
     };
 
@@ -30,8 +30,8 @@ class ObjectDetectionForm extends React.Component {
     }
 
     previewFile = () => {
-        const preview = document.querySelector('img');
-        const file = document.querySelector('input[type=file]').files[0];
+        const preview = document.querySelector("img");
+        const file = document.querySelector("input[type=file]").files[0];
         const reader = new FileReader();
         reader.onloadend = function () {
             preview.src = reader.result;
@@ -80,15 +80,15 @@ class ObjectDetectionForm extends React.Component {
                         <Button id="detection_btn" bsStyle="primary"
                                 onClick={() => {
                                     if (this.state.fileToUpload == null) return
-                                    this.setState({detectionStatus: 'in_progress'});
+                                    this.setState({detectionStatus: "in_progress"});
                                     this.props.detectObjects(this.state.fileToUpload, (detectedClasses) => {
                                         this.setState({
-                                            detectionStatus: 'idle',
+                                            detectionStatus: "idle",
                                             detectedClasses: JSON.parse(detectedClasses)
                                         });
                                     })
                                 }}>
-                            {this.state.detectionStatus === 'idle' ? 'Detect objects' : 'Detection in progress...'}
+                            {this.state.detectionStatus === "idle" ? "Detect objects" : "Detection in progress..."}
                         </Button>
                         <div>
                             {this.getDetectedClasses()}
